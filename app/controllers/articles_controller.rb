@@ -40,11 +40,19 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     # Updating using the update method whitelisting the params given by the user.
     if @article.update(params.require(:article).permit(:title, :description))
-      flash[:notice] = "Article was updated successfully!"
+      flash[:notice] = "The article was updated successfully!"
       redirect_to @article
     else
       render 'edit'
     end
+  end
+
+  # DELETE method | /articles/:id
+  def destroy
+    @article = Article.find(params[:id])
+    @article.destroy
+
+    redirect_to articles_path, status: :see_other
   end
 
 end
