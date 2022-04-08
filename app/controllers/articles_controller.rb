@@ -24,6 +24,7 @@ class ArticlesController < ApplicationController
   def create
     # As we receive the data from the user, we need to whitelist it and the require and permit do that.
     @article = Article.new(article_params)
+    @article.user = User.first
     if @article.save
       # Send a flash message for the component in the main application.
       flash[:notice] = "Article was created successfully!"
