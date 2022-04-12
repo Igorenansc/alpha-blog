@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
 
   # GET method for the articles index. | /articles
   def index
-    @articles = Article.all
+    @articles = Article.paginate(page: params[:page], per_page: 5)
   end
 
   # GET method for the creation of articles. | /articles/new
