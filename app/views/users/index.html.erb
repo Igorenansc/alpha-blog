@@ -6,7 +6,7 @@
       <div class="col-8 mt-4">
         <div class="card text-center shadow mb-5 bg-body rounded">
           <div class="card-header fst-italic">
-            By <%= user.username %>
+            <%= link_to  user.username, user_path(user.id), class: "text-decoration-none" %>
           </div>
           <div class="card-body">
             <h5 class="card-title"> <%= link_to  gravatar_for(user, size: 150), user_path(user.id) %> </h5>
