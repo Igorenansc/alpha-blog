@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  
+  before_action :require_user, except: [:show, :index]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
+
   # GET method for individual article, passing id as paramether. /artiles/:id
   def show
   end
@@ -24,7 +26,7 @@ class ArticlesController < ApplicationController
   def create
     # As we receive the data from the user, we need to whitelist it and the require and permit do that.
     @article = Article.new(article_params)
-    @article.user = User.first
+    @article.user = current_user
     if @article.save
       # Send a flash message for the component in the main application.
       flash[:notice] = "Article was created successfully!"
@@ -61,5 +63,11 @@ class ArticlesController < ApplicationController
   def article_params
     params.require(:article).permit(:title, :description)
   end
+
+  def require_same_user
+    if current_user != @article.user and !current_user.admin?
+      flash[:danger] = "You can only edit or delete your own articles"
+      redirect_to @article
+    end
 
 end
