@@ -1,9 +1,12 @@
-class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :show]
-  before_action :require_user, only: [:edit, :update]
-  before_action :require_same_user, only: [:edit, :update]
+# frozen_string_literal: true
 
-  #|---|| GET methods ||---|
+# Controller for User routes
+class UsersController < ApplicationController
+  before_action :set_user, only: %i[edit update show destroy]
+  before_action :require_user, only: %i[edit update]
+  before_action :require_same_user, only: %i[edit update destroy]
+
+  # |---|| GET methods ||---|
   def show
     @articles = @user.articles.paginate(page: params[:page], per_page: 5)
   end
@@ -18,7 +21,7 @@ class UsersController < ApplicationController
 
   def edit
   end
-  #|---|| GET methods ||---|
+  # |---|| GET methods ||---|
 
   # POST method for the users. | /users
   def create
@@ -35,14 +38,24 @@ class UsersController < ApplicationController
   # PATCH/PUT method for the user edit. | /user/:id
   def update
     if @user.update(user_params)
-      flash[:notice] = "Your account information was successfully updated"
+      flash[:notice] = 'Your account information was successfully updated'
       redirect_to @user
     else
       render 'edit'
     end
   end
 
+  # DELETE method for the user. | /user/:id
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    session[:user_id] = nil
+    flash[:danger] = 'User and all articles created by user have been deleted'
+    redirect_to articles_path, status: :see_other
+  end
+
   private
+
   def user_params
     params.require(:user).permit(:username, :email, :password)
   end
@@ -52,10 +65,9 @@ class UsersController < ApplicationController
   end
 
   def require_same_user
-    if current_user != @user
-      flash[:danger] = "You can only edit your own account"
-      redirect_to @user
-    end
-  end
+    return unless current_user != @user
 
+    flash[:danger] = 'You can only edit your own account'
+    redirect_to @user
+  end
 end

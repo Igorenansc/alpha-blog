@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -12,10 +14,10 @@ Rails.application.routes.draw do
   get '/user/:id/edit', to: 'users#edit', as: 'edit_user'
   get '/user/:id', to: 'users#show', as: 'user'
   patch '/user/:id', to: 'users#update'
-  resources :users, except: %i[new edit show update]
-  
+  delete '/user/:id', to: 'users#destroy'
+  resources :users, only: %i[index create]
+
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
-
 end
