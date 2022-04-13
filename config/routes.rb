@@ -10,8 +10,8 @@ Rails.application.routes.draw do
 
   get 'signup', to: 'users#new'
   get '/user/:id/edit', to: 'users#edit', as: 'edit_user'
-  patch '/user/:id', to: 'users#update'
   get '/user/:id', to: 'users#show', as: 'user'
+  patch '/user/:id', to: 'users#update'
   resources :users, except: %i[new edit show update]
   
   get 'login', to: 'sessions#new'
