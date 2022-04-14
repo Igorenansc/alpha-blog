@@ -24,7 +24,9 @@
         </li>
         <% if logged_in? %>
           <li class="nav-item dropdown">
-            <%= link_to  current_user.username, user_path(current_user.id), class: "nav-link dropdown-toggle", id: "navbarDropdown", role: "button", "data-bs-toggle": "dropdown", "aria-expanded": "false" %>
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <%= '(Admin)' if current_user.admin? %> <%= current_user.username %>
+            </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><%= link_to  "View Profile", user_path(current_user.id), class: "dropdown-item" %></li>
               <li><%= link_to  "Edit Profile", edit_user_path(current_user.id), class: "dropdown-item" %></li>
