@@ -7,6 +7,9 @@
         <div class="card-header fst-italic">
           By <%= @article.user.username %>
           <%= link_to gravatar_for(@article.user), user_path(@article.user.id) %>
+          <% if @article.categories.any? %>
+            <div class="mt-2 custom-badge"><%= render @article.categories %></div>
+          <% end %>
         </div>
         <div class="card-body">
           <div class="card-text text-start"><%= simple_format(@article.description) %></div>

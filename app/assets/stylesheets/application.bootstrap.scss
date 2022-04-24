@@ -107,9 +107,11 @@ body {
 .flickr_pagination .next_page {
   margin-left: 1em;
 }
+
 /////////////////////////////////
 /*---End of Pagination Style---*/
 /////////////////////////////////
+
 
 
 /////////////////////////
@@ -130,6 +132,28 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-thumb:hover {
   background-color: rgba(123, 192, 19, 0.699);
 }
+
 ////////////////////////////////
 /*---End of Scrollbar Style---*/
 ////////////////////////////////
+
+
+
+////////////////////////////
+/*---Custom Badge Style---*/
+////////////////////////////
+// .custom-badge {
+//   background-color: rgb(123, 192, 19);
+// }
+
+// .custom-badge:hover {
+//   background-color: rgba(123, 192, 19, 0.699);
+// }
+
+.custom-link:hover {
+  color: #fff;
+}
+
+///////////////////////////////////
+/*---End of Custom Badge Style---*/
+///////////////////////////////////
