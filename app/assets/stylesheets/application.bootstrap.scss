@@ -142,15 +142,14 @@ body::-webkit-scrollbar-thumb:hover {
 ////////////////////////////
 /*---Custom Badge Style---*/
 ////////////////////////////
-// .custom-badge {
-//   background-color: rgb(123, 192, 19);
-// }
+.custom-badge {
+  background-color: rgb(113, 173, 24);
+  text-decoration: none !important;
+  transition: background-color 0.15s ease-in-out;
+}
 
-// .custom-badge:hover {
-//   background-color: rgba(123, 192, 19, 0.699);
-// }
-
-.custom-link:hover {
+.custom-badge:hover {
+  background-color: rgb(54, 85, 7);
   color: #fff;
 }
 

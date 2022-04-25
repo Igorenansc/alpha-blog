@@ -6,7 +6,7 @@
           <div class="card-header fst-italic">
             By <%= link_to article.user.username, user_path(article.user.id) %>
             <% if article.categories.any? %>
-              <div class="mt-2 custom-badge"><%= render article.categories %></div>
+              <div class="mt-2"><%= render article.categories %></div>
             <% end %>
           </div>
           <div class="card-body">

@@ -1,1 +1,21 @@
 <h1 class="text-center mt-4">Category: <%= @category.name %></h1>
+
+<% if logged_in? && current_user.admin? %>
+  <div class="text-center mt-4">
+    <%= link_to  "Edit category name", category_path(@category.id), class: "btn btn-outline-primary" %>
+  </div>
+<% end %>
+
+<h3 class="text-center mt-4">Articles</h3>
+
+<!-- Add pagination to articles listing on user profile -->
+<div class="flickr_pagination">
+  <%= will_paginate @articles, :container => false %>
+</div>
+
+<%= render  "articles/article" %>
+
+<div class="flickr_pagination mb-4">
+  <%= will_paginate @articles, :container => false %>
+</div>
+<!-- End of pagination -->
