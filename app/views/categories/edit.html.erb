@@ -1,4 +1,4 @@
-<h1 class="text-center mt-4">Create a new category</h1>
+<h1 class="text-center mt-4">Update category</h1>
 <div class="container">
   <!-- Using form helper to create a form using the model object -->
   <div class="row justify-content-center">
@@ -7,7 +7,7 @@
     </div>
     <!-- -->
     <div class="text-center mt-1 mb-4">
-      <%= link_to 'Cancel and return to categories', categories_path, class: "btn btn-outline-dark" %>
+      <%= link_to 'Cancel and return to category', category_path(@category.id), class: "btn btn-outline-dark" %>
     </div>
   </div>
 </div>
