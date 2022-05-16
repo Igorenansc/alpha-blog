@@ -4,7 +4,7 @@
 lock '~> 3.17.0'
 
 set :application, 'alpha-blog'
-set :repo_url, 'git@example.com:igorenan/alpha-blog.git'
+set :repo_url, 'git@github.com:igorenan/alpha-blog/tree/setup-capistrano.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
