@@ -57,6 +57,9 @@ gem 'capistrano-rails', '~> 1.4'
 gem 'capistrano-passenger', '~> 0.2.0'
 gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 
+gem 'ed25519'
+gem 'bcrypt_pbkdf'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3', '~> 1.4'

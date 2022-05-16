@@ -73,6 +73,7 @@ GEM
     ast (2.4.2)
     backport (1.2.0)
     bcrypt (3.1.17)
+    bcrypt_pbkdf (1.1.0)
     benchmark (0.2.0)
     bindex (0.8.1)
     bootsnap (1.11.1)
@@ -113,6 +114,7 @@ GEM
     diff-lcs (1.5.0)
     digest (3.1.0)
     e2mmap (0.1.0)
+    ed25519 (1.3.0)
     erubi (1.10.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -291,6 +293,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  bcrypt_pbkdf
   bootsnap
   capistrano (~> 3.11)
   capistrano-passenger (~> 0.2.0)
@@ -299,6 +302,7 @@ DEPENDENCIES
   capybara
   cssbundling-rails (~> 1.1)
   debug
+  ed25519
   jbuilder
   jsbundling-rails (~> 1.0)
   pg
