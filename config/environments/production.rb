@@ -2,7 +2,7 @@ require 'active_support/core_ext/integer/time'
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  set :default_env, { 'PASSENGER_INSTANCE_REGISTRY_DIR' => '/home/deploy/passenger_temp' }
   # Code is not reloaded between requests.
   config.cache_classes = true
   config.secret_key_base = '16693517ed88f3e13621348cb1ada94a1d1a824bf3fbf5c98d5dddc36077222ee2c1758594e4451f0d1e1ebcea434fea9d2e39d53850a986d76140b3dc0a6a47'
